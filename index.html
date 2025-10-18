@@ -1,192 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dihaadi.in - Labour Connect</title>
-  <style>
-    body {
-      font-family: "Poppins", Arial, sans-serif;
-      background-color: #f4f7fb;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(90deg, #0077b6, #0096c7);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    .language-toggle {
-      text-align: right;
-      margin: 0.5rem 1rem;
-    }
-    .language-toggle button {
-      background-color: #023e8a;
-      color: white;
-      border: none;
-      margin: 0 5px;
-      padding: 0.4rem 0.8rem;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      padding: 2rem;
-    }
-    .hero {
-      text-align: center;
-    }
-    .hero img {
-      width: 100%;
-      max-height: 340px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    h2 {
-      color: #023e8a;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-      font-weight: 600;
-    }
-    input, select, button {
-      width: 100%;
-      max-width: 400px;
-      padding: 0.7rem;
-      margin: 0.5rem 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background-color: #0077b6;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    button:hover {
-      background-color: #0096c7;
-    }
-    footer {
-      background-color: #023e8a;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dihaadi.in - Register</title>
+<style>
+  body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe4e6, #ffcad4);
+    color: #6b0214;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: #ff6384;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  .language-toggle {
+    text-align: right;
+    margin: 0.5rem 1rem;
+  }
+  .language-toggle button {
+    background-color: #6b0214;
+    color: #ffc1cc;
+    border: none;
+    margin: 0 5px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .container {
+    max-width: 960px;
+    margin: 2rem auto;
+    background-color: #ffe4e6dd;
+    border-radius: 8px;
+    box-shadow: 0 0 30px #ff7f91aa;
+    padding: 2rem;
+  }
+  .hero img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  h2 {
+    color: #bf1650;
+  }
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+  input, select, button {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 0.5rem 0 1rem 0;
+    border-radius: 8px;
+    border: 1px solid #bf1650;
+    font-size: 1rem;
+  }
+  input, select {
+    background-color: #fff0f4;
+    color: #6b0214;
+  }
+  button {
+    background-color: #bf1650;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background-color: #9b1440;
+  }
+  footer {
+    background-color: #6b0214;
+    color: #ffc1cc;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+</style>
 </head>
 <body>
-  <div class="language-toggle">
-    <button onclick="setLanguage('en')">English</button>
-    <button onclick="setLanguage('hi')">हिंदी</button>
+
+<div class="language-toggle">
+  <button onclick="setLanguage('en')">English</button>
+  <button onclick="setLanguage('hi')">हिंदी</button>
+</div>
+
+<header>
+  <h1 id="title">Welcome to Dihaadi.in</h1>
+  <p id="subtitle">Connecting Daily Wage Workers and Contractors</p>
+</header>
+
+<div class="container">
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1603389658852-294f5f8586d4?auto=format&fit=crop&w=1600&q=80" alt="Indian labourers working together" />
   </div>
 
-  <header>
-    <h1 id="title">Welcome to Dihaadi.in</h1>
-    <p id="subtitle">Connecting Daily Wage Workers and Contractors</p>
-  </header>
+  <h2 id="registerTitle">Register as Labour / Contractor</h2>
+  <form id="registerForm">
+    <label id="roleLabel" for="role">I am a:</label>
+    <select id="role" name="role" required>
+      <option value="">Select Role</option>
+      <option value="labour">मज़दूर</option>
+      <option value="contractor">कॉन्ट्रैक्टर</option>
+    </select>
 
-  <div class="container">
-    <div class="hero">
-      <img src="https://images.unsplash.com/photo-1603389658852-294f5f8586d4?auto=format&fit=crop&w=1600&q=80" alt="Indian labourers working together" />
-    </div>
+    <label id="nameLabel" for="name">Full Name:</label>
+    <input id="name" name="name" type="text" required />
 
-    <h2 id="registerTitle">Register as Labour / Contractor</h2>
-    <form id="registerForm">
-      <label id="roleLabel" for="role">I am a:</label>
-      <select id="role" name="role" required>
-        <option value="">Select Role</option>
-        <option value="labour">Labour / मज़दूर</option>
-        <option value="contractor">Contractor / कॉन्ट्रैक्टर</option>
-      </select>
+    <label id="aadhaarLabel" for="aadhaar">Aadhaar Number:</label>
+    <input id="aadhaar" name="aadhaar" type="text" pattern="[0-9]{12}" title="12 digit number" required />
 
-      <label id="nameLabel" for="name">Full Name:</label>
-      <input id="name" name="name" type="text" required />
+    <label id="mobileLabel" for="mobile">Mobile Number:</label>
+    <input id="mobile" name="mobile" type="tel" pattern="[0-9]{10}" title="10 digit mobile number" required />
 
-      <label id="aadhaarLabel" for="aadhaar">Aadhaar Number:</label>
-      <input id="aadhaar" name="aadhaar" type="text" pattern="[0-9]{12}" title="12 digit number" required />
+    <label id="skillsLabel" for="skills">Skill Category (for labour):</label>
+    <select id="skills" name="skills">
+      <option value="">Select Skill</option>
+      <option value="mason">राज मिस्त्री</option>
+      <option value="carpenter">बढ़ई</option>
+      <option value="electrician">बिजली मिस्त्री</option>
+      <option value="plumber">नलकार</option>
+      <option value="painter">रंगाई पुताई</option>
+      <option value="welder">वेल्डर</option>
+      <option value="ironworker">लोहे का काम</option>
+      <option value="tile_setter">टाइल लगाने वाला</option>
+      <option value="driver">वाहन चालक</option>
+      <option value="cleaner">सफाई कर्मचारी</option>
+      <option value="helper">सहायक</option>
+      <option value="machine_operator">मशीन चलाने वाला</option>
+      <option value="gardener">माली</option>
+      <option value="supervisor">साइट पर्यवेक्षक</option>
+      <option value="other">अन्य</option>
+    </select>
 
-      <label id="mobileLabel" for="mobile">Mobile Number:</label>
-      <input id="mobile" name="mobile" type="tel" pattern="[0-9]{10}" title="10 digit mobile number" required />
+    <label id="availabilityLabel" for="availability">Availability:</label>
+    <input id="availability" name="availability" type="text" placeholder="Days and Timings" />
 
-      <label id="skillsLabel" for="skills">Skill Category (for labour):</label>
-      <select id="skills" name="skills">
-        <option value="">Select Skill</option>
-        <option value="mason">Mason / राज मिस्त्री</option>
-        <option value="carpenter">Carpenter / बढ़ई</option>
-        <option value="electrician">Electrician / बिजली मिस्त्री</option>
-        <option value="plumber">Plumber / नलकार</option>
-        <option value="painter">Painter / रंगाई पुताई</option>
-        <option value="welder">Welder / वेल्डर</option>
-        <option value="ironworker">Ironworker / लोहे का काम</option>
-        <option value="tile_setter">Tile Setter / टाइल लगाने वाला</option>
-        <option value="driver">Driver / वाहन चालक</option>
-        <option value="cleaner">Cleaner / सफाई कर्मचारी</option>
-        <option value="helper">Helper / सहायक</option>
-        <option value="machine_operator">Machine Operator / मशीन चलाने वाला</option>
-        <option value="gardener">Gardener / माली</option>
-        <option value="supervisor">Site Supervisor / साइट पर्यवेक्षक</option>
-        <option value="other">Other / अन्य</option>
-      </select>
+    <button type="submit" id="registerBtn">Register</button>
+  </form>
+</div>
 
-      <label id="availabilityLabel" for="availability">Availability:</label>
-      <input id="availability" name="availability" type="text" placeholder="Days and Timings" />
+<footer>
+  <p>© Dihaadi.in 2025 | Empowering Workers, Building Futures</p>
+</footer>
 
-      <button type="submit" id="registerBtn">Register</button>
-    </form>
-  </div>
+<script>
+  const translations = {
+    hi: {
+      title: "स्वागत है Dihaadi.in में",
+      subtitle: "दैनिक मज़दूरों और कॉन्ट्रैक्टरों को जोड़ने वाला मंच",
+      registerTitle: "मज़दूर / कॉन्ट्रैक्टर के रूप में पंजीकरण करें",
+      roleLabel: "मैं हूँ:",
+      nameLabel: "पूरा नाम:",
+      aadhaarLabel: "आधार नंबर:",
+      mobileLabel: "मोबाइल नंबर:",
+      skillsLabel: "कौशल श्रेणी (मज़दूरों के लिए):",
+      availabilityLabel: "उपलब्धता:",
+      registerBtn: "पंजीकरण करें"
+    },
+    en: {
+      title: "Welcome to Dihaadi.in",
+      subtitle: "Connecting Daily Wage Workers and Contractors",
+      registerTitle: "Register as Labour / Contractor",
+      roleLabel: "I am a:",
+      nameLabel: "Full Name:",
+      aadhaarLabel: "Aadhaar Number:",
+      mobileLabel: "Mobile Number:",
+      skillsLabel: "Skill Category (for labour):",
+      availabilityLabel: "Availability:",
+      registerBtn: "Register"
+    }
+  };
 
-  <footer>
-    <p>© Dihaadi.in 2025 | Empowering Workers, Building Futures</p>
-  </footer>
+  function setLanguage(lang) {
+    const t = translations[lang];
+    for (const key in t) {
+      document.getElementById(key).innerText = t[key];
+    }
+  }
 
-  <script>
-    const translations = {
-      hi: {
-        title: "स्वागत है Dihaadi.in में",
-        subtitle: "दैनिक मज़दूरों और कॉन्ट्रैक्टरों को जोड़ने वाला मंच",
-        registerTitle: "मज़दूर / कॉन्ट्रैक्टर के रूप में पंजीकरण करें",
-        roleLabel: "मैं हूँ:",
-        nameLabel: "पूरा नाम:",
-        aadhaarLabel: "आधार नंबर:",
-        mobileLabel: "मोबाइल नंबर:",
-        skillsLabel: "कौशल श्रेणी (मज़दूरों के लिए):",
-        availabilityLabel: "उपलब्धता:",
-        registerBtn: "पंजीकरण करें"
-      },
-      en: {
-        title: "Welcome to Dihaadi.in",
-        subtitle: "Connecting Daily Wage Workers and Contractors",
-        registerTitle: "Register as Labour / Contractor",
-        roleLabel: "I am a:",
-        nameLabel: "Full Name:",
-        aadhaarLabel: "Aadhaar Number:",
-        mobileLabel: "Mobile Number:",
-        skillsLabel: "Skill Category (for labour):",
-        availabilityLabel: "Availability:",
-        registerBtn: "Register"
-      }
+  document.getElementById('registerForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const data = {
+      role: document.getElementById('role').value,
+      name: document.getElementById('name').value,
+      aadhaar: document.getElementById('aadhaar').value,
+      mobile: document.getElementById('mobile').value,
+      skills: document.getElementById('skills').value,
+      availability: document.getElementById('availability').value,
     };
 
-    function setLanguage(lang) {
-      const t = translations[lang];
-      for (const key in t) {
-        document.getElementById(key).innerText = t[key];
-      }
-    }
+    try {
+      const response = await fetch('http://127.0.0.1:5000/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+      });
 
-    document.getElementById("registerForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Registration submitted! (Implement backend next)");
-    });
-  </script>
+      const result = await response.json();
+
+      alert(result.message);
+    } catch (error) {
+      alert('Failed to submit registration: ' + error.message);
+    }
+  });
+</script>
 </body>
 </html>
