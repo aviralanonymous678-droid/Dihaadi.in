@@ -185,7 +185,7 @@
   }
 
   document.getElementById('registerForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
+    e.preventDefault();  // IMPORTANT: Prevent the default form submission
 
     const data = {
       role: document.getElementById('role').value,
@@ -198,11 +198,24 @@
 
     try {
       const response = await fetch('http://127.0.0.1:5000/register', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(data)
-})
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
 
+      if (!response.ok) {
+        throw new Error('Server error: ' + response.status);
+      }
+
+      const result = await response.json();
+      alert(result.message);
+      // Optionally clear the form or show success UI here
+      document.getElementById('registerForm').reset();
+
+    } catch (error) {
+      alert('Failed to submit registration: ' + error.message);
+    }
+  });
 </script>
 </body>
 </html>
