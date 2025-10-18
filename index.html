@@ -148,45 +148,38 @@
     <p>© Dihaadi.in 2025 | Empowering Workers, Building Futures</p>
   </footer>
 
-  <script>
-    const translations = {
-      hi: {
-        title: "स्वागत है Dihaadi.in में",
-        subtitle: "दैनिक मज़दूरों और कॉन्ट्रैक्टरों को जोड़ने वाला मंच",
-        registerTitle: "मज़दूर / कॉन्ट्रैक्टर के रूप में पंजीकरण करें",
-        roleLabel: "मैं हूँ:",
-        nameLabel: "पूरा नाम:",
-        aadhaarLabel: "आधार नंबर:",
-        mobileLabel: "मोबाइल नंबर:",
-        skillsLabel: "कौशल श्रेणी (मज़दूरों के लिए):",
-        availabilityLabel: "उपलब्धता:",
-        registerBtn: "पंजीकरण करें"
-      },
-      en: {
-        title: "Welcome to Dihaadi.in",
-        subtitle: "Connecting Daily Wage Workers and Contractors",
-        registerTitle: "Register as Labour / Contractor",
-        roleLabel: "I am a:",
-        nameLabel: "Full Name:",
-        aadhaarLabel: "Aadhaar Number:",
-        mobileLabel: "Mobile Number:",
-        skillsLabel: "Skill Category (for labour):",
-        availabilityLabel: "Availability:",
-        registerBtn: "Register"
-      }
+  <!-- your existing HTML content -->
+
+<script>
+  document.getElementById('registerForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const data = {
+      role: document.getElementById('role').value,
+      name: document.getElementById('name').value,
+      aadhaar: document.getElementById('aadhaar').value,
+      mobile: document.getElementById('mobile').value,
+      skills: document.getElementById('skills').value,
+      availability: document.getElementById('availability').value,
     };
 
-    function setLanguage(lang) {
-      const t = translations[lang];
-      for (const key in t) {
-        document.getElementById(key).innerText = t[key];
-      }
-    }
+    try {
+      const response = await fetch('http://127.0.0.1:5000/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+      });
 
-    document.getElementById("registerForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Registration submitted! (Implement backend next)");
-    });
-  </script>
+      const result = await response.json();
+
+      alert(result.message);
+    } catch (error) {
+      alert('Failed to submit registration: ' + error.message);
+    }
+  });
+</script>
 </body>
 </html>
+
